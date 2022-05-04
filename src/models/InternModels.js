@@ -1,5 +1,7 @@
 const { default: mongoose } = require("mongoose");
-require('mongoose-type-email')
+const CollegeModels = require("./CollegeModels");
+const ObjectId = mongoose.Schema.Types.ObjectId
+ require('mongoose-type-email')
 
 const InternSchema = new mongoose.Schema({
     name: {
@@ -8,13 +10,16 @@ const InternSchema = new mongoose.Schema({
         trim: true
     },
     mobile: {
-        type: String,
+        type: Number,
         required: true,
         unique: true,
         trim: true
     },
-    collegeId:{
-        
+    college_id:{
+        type:ObjectId,
+        required:true,
+        ref:"College",
+        trim:true,
     },
     email: {
         type: mongoose.SchemaTypes.Email,
