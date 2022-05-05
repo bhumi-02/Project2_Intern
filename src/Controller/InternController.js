@@ -24,14 +24,28 @@ const createIntern = async function (req, res) {
           .status(400)
           .send({ status: false, data: "plz enter a valid Email" });
       }
+      let checkemail = await CollegeModels.find({ email });
+      if (checkemail.length != 0) {
+        return res.status(400).send({
+          status: false,
+          msg: "email is already exits",
+        });
+      }
       if (!data.mobile) {
         return res
           .status(400)
           .send({ status: false, data: "mobile No. is required" });
       }
       if(!/^(?:(?:\+|0{0,2})91(\s*|[\-])?|[0]?)?([6789]\d{2}([ -]?)\d{3}([ -]?)\d{4})$/.test(data.mobile)){
-          return res.status(400).send({status:false, data:"mobile number ir valid"})
+          return res.status(400).send({status:false, data:"plz enter a valid Mobile Number"})
       }
+      let checkMobile = await CollegeModels.find({ mobile });
+    if (checkMobile.length != 0) {
+      return res.status(400).send({
+        status: false,
+        msg: "mobile is already exits",
+      });
+    }
       let college_id = data.collegeId;
       console.log(college_id)
       if (!college_id) {
@@ -42,7 +56,7 @@ const createIntern = async function (req, res) {
       if (Object.keys(college_id).length == 0 || college_id.length == 0) {
         return res
           .status(400)
-          .send({ status: false, data: "enter a valid collegeId" });
+          .send({ status: false, data: "plz enter a valid collegeId" });
       }
       console.log(college_id);
       let collegeDetail = await CollegeModels.find({_id:data.collegeId});
