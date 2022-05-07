@@ -104,3 +104,6 @@ College details
     ]
   }
 }
+
+
+https://functionup-stg.s3.ap-south-1.amazonaws.com/uranium/gce.jpg
