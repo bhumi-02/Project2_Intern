@@ -14,25 +14,13 @@ const internSchema = new mongoose.Schema(
       lowercase: true,
       unique: true,
       required: [true, "Email address is required"],
-      validate: {
-        validator: function (v) {
-          return /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/.test(v);
-        },
-        message: "Please enter a valid email",
-      },
+     
     },
     mobile: {
       type: Number,
       trim: true,
       unique: true,
       required: [true, "mobile number is required"],
-      validate: {
-        validator:function(v) {
-          return /^(?:(?:\+|0{0,2})91(\s*|[\-])?|[0]?)?([6789]\d{2}([ -]?)\d{3}([ -]?)\d{4})$/.test(v)
-        },
-        message:"Please enter a valid mobile number"
-      }
-      
     },
     collegeId: {
       type: ObjectId,

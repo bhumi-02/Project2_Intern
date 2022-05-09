@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const CollegeModels = require("../models/CollegeModels");
 const InternModels = require("../models/InternModels");
 
-const createIntern = async function (req, res) {
+const Intern = async function (req, res) {
   try {
     let data = req.body;
     console.log(data);
@@ -138,5 +138,5 @@ const CollegeDetails = async function (req, res) {
   }
 };
 
-module.exports.createIntern = createIntern;
+module.exports.Intern = Intern;
 module.exports.CollegeDetails = CollegeDetails;

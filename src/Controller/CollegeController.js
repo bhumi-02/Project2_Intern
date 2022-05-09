@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const collegeModel = require("../models/CollegeModels");
 
-const createCollege = async function (req, res) {
+const College = async function (req, res) {
   try {
     let { name, fullName, logoLink } = req.body;
     const requestBody = req.body;
@@ -53,4 +53,4 @@ const createCollege = async function (req, res) {
     res.status(500).send({ msg: error.message });
   }
 };
-module.exports.createCollege = createCollege;
+module.exports.College = College;
